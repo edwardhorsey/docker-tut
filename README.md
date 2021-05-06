@@ -11,3 +11,12 @@
 
 ### Enter container file system
 `sudo docker exec -it node-docker-app bash`
+
+### Restart docker
+`systemctl restart docker`
+
+### List images
+`sudo docker image ls`
+
+### List containers
+`sudo docker ps`
