@@ -8,7 +8,8 @@
 
 ### Run container 
 (with bind mount volume for all files, volume for node_modules, )
-`sudo docker run -v $(pwd):/app -v /app/node_modules -p 3000:3000 -d --name node-docker-app node-docker-app-image`
+
+`sudo docker run -v $(pwd):/app:ro -v /app/node_modules -p 3000:3000 -d --name node-docker-app node-docker-app-image`
 
 ### Remove container
 `sudo docker rm node-docker-app -f`
