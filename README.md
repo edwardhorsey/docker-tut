@@ -6,8 +6,9 @@
 ### Run container
 `sudo docker run -p 3000:3000 -d --name node-docker-app node-docker-app-image`
 
-### Run container with bind mount
-`sudo docker run -v $(pwd):/app  -p 3000:3000 -d --name node-docker-app node-docker-app-image`
+### Run container 
+(with bind mount volume for all files, volume for node_modules, )
+`sudo docker run -v $(pwd):/app -v /app/node_modules -p 3000:3000 -d --name node-docker-app node-docker-app-image`
 
 ### Remove container
 `sudo docker rm node-docker-app -f`
@@ -25,4 +26,4 @@
 `sudo docker image ls`
 
 ### List containers
-`sudo docker ps`
+`sudo docker ps -a`
