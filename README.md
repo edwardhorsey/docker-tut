@@ -1,5 +1,10 @@
 # Node docker
 
+## docker-compose
+(-d for detached mode)
+
+`sudo docker-compose up -d`
+
 ### Build image
 `sudo docker build -t node-docker-app-image .`
 
