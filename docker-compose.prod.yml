@@ -1,6 +1,10 @@
 version: "3.0"
 services:
   node-docker-app:
+    build: 
+      context: .
+      args:
+        NODE_ENV: production
     environment:
       - NODE_ENVIRONMENT=production
     command: node index.js
