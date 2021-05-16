@@ -3,7 +3,7 @@ services:
   node-docker-app:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:4000"
     env_file:
       - ./.env
 networks:

@@ -12,6 +12,16 @@ https://www.youtube.com/watch?v=9zUHg7xjIqQ
 
 `sudo docker-compose down -v`
 
+### Pass one or more files to docker-compose (-f):
+- Dev
+>  `sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+
+> `sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v`
+- Prod
+> `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
+
+> `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml down -v`
+
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
 
