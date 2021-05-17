@@ -6,6 +6,11 @@ services:
       - "3000:4000"
     env_file:
       - ./.env
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ed
+      - MONGO_INITDB_ROOT_PASSWORD=password
 networks:
   default:
     driver: bridge

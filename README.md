@@ -25,6 +25,10 @@ https://www.youtube.com/watch?v=9zUHg7xjIqQ
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
 
+## MongoDB
+### Enter mongo db
+`sudo docker exec -it nodedocker_mongo_1 mongo -u "ed" -p "password"`
+
 ## General docker commands:
 ### Enter container file system
 `sudo docker exec -it node-docker-app bash`
