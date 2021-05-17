@@ -11,6 +11,10 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ed
       - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-db:/data/db
+volumes: # declaring our named volume
+  mongo-db:
 networks:
   default:
     driver: bridge

@@ -16,11 +16,13 @@ https://www.youtube.com/watch?v=9zUHg7xjIqQ
 - Dev
 >  `sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
 
-> `sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v`
+> `sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml down`
 - Prod
 > `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
 
-> `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml down -v`
+> `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml down`
+
+Note: removed -v flag as we are using a named volume which we do not want to delete. To delete unused volumes, **important!** start your containers whose volumes you want to keep **then** run `sudo docker volume prune`
 
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
@@ -45,6 +47,15 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ### List containers
 `sudo docker ps -a`
 
+## Notes
+### Types of volumes
+#### Bind mount
+path on local machine : path on container, eg. `./:app`
+#### Anonymous volume
+just path on container which you're interested in, eg. `/app/node_modules`
+
+#### Named volume 
+name : path on container, eg. `mongo-db:/data/db` **but** must mention in docker-composer.yml as a volume under volumes section
 ## Docker Normal
 ### Build image
 `sudo docker build -t node-docker-app-image .`
