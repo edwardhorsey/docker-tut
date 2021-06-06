@@ -1,6 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT, EDWARD, PORT, NODE_ENVIRONMENT } = require("./config/config");
+const express = require('express');
+const mongoose = require('mongoose');
+const {
+  MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT, EDWARD, PORT, NODE_ENVIRONMENT,
+} = require('./config/config');
 
 const app = express();
 
@@ -8,19 +10,19 @@ const mongoAddress = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MO
 
 const connectWithRetry = () => {
   mongoose
-  .connect(mongoAddress, { useUnifiedTopology: true, useNewUrlParser: true })
-  .then(() => console.log("successfully connected to DB"))
-  .catch((err) => {
-    console.log(err);
-    setTimeout(connectWithRetry, 5000);
-  });
+    .connect(mongoAddress, { useUnifiedTopology: true, useNewUrlParser: true })
+    .then(() => console.log('successfully connected to DB'))
+    .catch((err) => {
+      console.log(err);
+      setTimeout(connectWithRetry, 5000);
+    });
 };
 
 connectWithRetry();
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send([
-    "<h2>Hi There Ed</h2>",
+    '<h2>Hi There Ed</h2>',
     `<p>Secret: ${EDWARD}</p>`,
     `<p>Using port: ${PORT} inside container</p>`,
     `<p>NODE_ENVIRONMENT: ${NODE_ENVIRONMENT}.</p>`,
