@@ -59,6 +59,12 @@ just path on container which you're interested in, eg. `/app/node_modules`
 
 #### Named volume 
 name : path on container, eg. `mongo-db:/data/db` **but** must mention in docker-composer.yml as a volume under volumes section
+
+### Custom networks
+#### Inspect network
+`sudo docker network inspect [network name]`
+
+On custom networks within Docker DNS is built in. We can use service name and DNS will resolve to the ip. eg. Log into the node app container and ping mongo. It will resolve to mongo's IP address.
 ## Docker Normal
 ### Build image
 `sudo docker build -t node-docker-app-image .`

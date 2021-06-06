@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-const mongoIpAddress = '172.16.57.2';
+const mongoIpAddress = 'mongo';
 const mongoPort = '27017';
 mongoose
   .connect(`mongodb://ed:password@${mongoIpAddress}:${mongoPort}/?authSource=admin`)
