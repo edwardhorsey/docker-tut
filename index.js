@@ -30,6 +30,9 @@ const connectWithRetry = () => {
 
 connectWithRetry();
 
+// Ensures body of a request gets attached to request object.
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send([
     '<h2>Hi There Ed</h2>',
