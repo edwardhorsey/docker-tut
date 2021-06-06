@@ -1,9 +1,8 @@
-# Node docker
+# Docker tutorial
 ### Watching: Learn Docker - DevOps with Node.js & Express
 https://www.youtube.com/watch?v=9zUHg7xjIqQ
 
-# Commands used
-## Docker Compose
+# Docker Compose
 ### Bring container up (-d for detached mode, looks for docker-compose.yml)
 
 `sudo docker-compose up -d`
@@ -27,11 +26,13 @@ Note: removed -v flag as we are using a named volume which we do not want to del
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
 
-## MongoDB
+---
+# MongoDB
 ### Enter mongo db
 `sudo docker exec -it nodedocker_mongo_1 mongo -u "ed" -p "password"`
 
-## General docker commands:
+---
+# General docker commands:
 ### Enter container file system
 `sudo docker exec -it node-docker-app bash`
 
@@ -50,22 +51,23 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ### Find a container IP address
 `sudo docker inspect [container name]`
 
-## Notes
-### Types of volumes
-#### Bind mount
+---
+# Notes
+## Types of volumes
+1. Bind mount
 path on local machine : path on container, eg. `./:app`
-#### Anonymous volume
+2. Anonymous volume
 just path on container which you're interested in, eg. `/app/node_modules`
 
-#### Named volume 
+3. Named volume 
 name : path on container, eg. `mongo-db:/data/db` **but** must mention in docker-composer.yml as a volume under volumes section
 
-### Custom networks
-#### Inspect network
+## Custom networks
+To inspect a network:
 `sudo docker network inspect [network name]`
 
 On custom networks within Docker DNS is built in. We can use service name and DNS will resolve to the ip. eg. Log into the node app container and ping mongo. It will resolve to mongo's IP address.
-## Docker Normal
+# Docker Normal
 ### Build image
 `sudo docker build -t node-docker-app-image .`
 
