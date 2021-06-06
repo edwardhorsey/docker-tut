@@ -5,10 +5,18 @@ const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT, EDWARD, PORT, NODE_ENV
 const app = express();
 
 const mongoAddress = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
-mongoose
+
+const connectWithRetry = () => {
+  mongoose
   .connect(mongoAddress, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log("successfully connected to DB"))
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+    setTimeout(connectWithRetry, 5000);
+  });
+};
+
+connectWithRetry();
 
 app.get("/", (req, res) => {
   res.send([
