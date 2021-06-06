@@ -6,7 +6,7 @@ const app = express();
 
 const mongoAddress = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
 mongoose
-  .connect(mongoAddress)
+  .connect(mongoAddress, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log("successfully connected to DB"))
   .catch((err) => console.log(err));
 
