@@ -47,6 +47,9 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ### List containers
 `sudo docker ps -a`
 
+### Find a container IP address
+`sudo docker inspect [container name]`
+
 ## Notes
 ### Types of volumes
 #### Bind mount

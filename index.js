@@ -1,6 +1,14 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
+
+const mongoIpAddress = '172.16.57.2';
+const mongoPort = '27017';
+mongoose
+  .connect(`mongodb://ed:password@${mongoIpAddress}:${mongoPort}/?authSource=admin`)
+  .then(() => console.log("successfully connected to DB"))
+  .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
   res.send([
