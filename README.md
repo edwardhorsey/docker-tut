@@ -31,6 +31,13 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ### Enter mongo db
 `sudo docker exec -it nodedocker_mongo_1 mongo -u "ed" -p "password"`
 
+# Redis
+### Enter redis db
+`sudo docker exec -it [container name] redis-cli`
+
+- See all keys `KEYS *`
+- See entry `GET [key]`
+
 ---
 # General docker commands:
 ### Enter container file system
