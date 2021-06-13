@@ -80,7 +80,7 @@ On custom networks within Docker DNS is built in. We can use service name and DN
 
 ### Run container (with bind mount volume for all files, volume for node_modules, )
 
-`sudo docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 3000:4000 -d --name [name to call container] [image name]`
+`sudo docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 3000:3000 -d --name [name to call container] [image name]`
 
 ### Remove container
 `sudo docker rm [container name] -f`

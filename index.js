@@ -47,10 +47,10 @@ app.use(express.json());
 app.use(session({
   store: new RedisStore({ client: redisClient }),
   secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
     secure: false,
-    resave: false,
-    saveUninitialized: false,
     httpOnly: true, // httpOnly - JS cannot access the cookie
     maxAge: 3_600_000, // 1 hour
   },
