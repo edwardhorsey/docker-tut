@@ -15,6 +15,9 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongo-db:/data/db
+  redis:
+    image: redis
+
 volumes: # declaring our named volume
   mongo-db:
 networks:
