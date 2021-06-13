@@ -29,7 +29,7 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ---
 # MongoDB
 ### Enter mongo db
-`sudo docker exec -it nodedocker_mongo_1 mongo -u "ed" -p "password"`
+`sudo docker exec -it [container name] mongo -u "ed" -p "password"`
 
 # Redis
 ### Enter redis db
@@ -41,10 +41,10 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ---
 # General docker commands:
 ### Enter container file system
-`sudo docker exec -it node-docker-app bash`
+`sudo docker exec -it [container name] bash`
 
 ### See container logs
-`sudo docker logs node-docker-app`
+`sudo docker logs [container name]`
 
 ### Restart docker
 `systemctl restart docker`
@@ -76,11 +76,11 @@ To inspect a network:
 On custom networks within Docker DNS is built in. We can use service name and DNS will resolve to the ip. eg. Log into the node app container and ping mongo. It will resolve to mongo's IP address.
 # Docker Normal
 ### Build image
-`sudo docker build -t node-docker-app-image .`
+`sudo docker build -t [image name] .`
 
 ### Run container (with bind mount volume for all files, volume for node_modules, )
 
-`sudo docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 3000:4000 -d --name node-docker-app node-docker-app-image`
+`sudo docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 3000:4000 -d --name [name to call container] [image name]`
 
 ### Remove container
-`sudo docker rm node-docker-app -f`
+`sudo docker rm [container name] -f`
