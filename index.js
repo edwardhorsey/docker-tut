@@ -52,7 +52,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     httpOnly: true, // httpOnly - JS cannot access the cookie
-    maxAge: 30000, // putting 30s just to demonstrate how cookie works
+    maxAge: 3_600_000, // 1 hour
   },
 }));
 
