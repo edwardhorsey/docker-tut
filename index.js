@@ -56,7 +56,7 @@ app.use(session({
   },
 }));
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
   res.send([
     '<h2>Hi There Ed</h2>',
     `<p>Secret: ${EDWARD}</p>`,
