@@ -23,6 +23,8 @@ https://www.youtube.com/watch?v=9zUHg7xjIqQ
 
 Note: removed -v flag as we are using a named volume which we do not want to delete. To delete unused volumes, **important!** start your containers whose volumes you want to keep **then** run `sudo docker volume prune`
 
+Add multiple instances of a container: add flag `--scale [container name]=2` (or more)
+
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
 
