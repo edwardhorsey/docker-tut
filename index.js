@@ -44,6 +44,7 @@ connectWithRetry();
 
 // Ensures body of a request gets attached to request object.
 app.use(express.json());
+app.enable('trust proxy');
 app.use(session({
   store: new RedisStore({ client: redisClient }),
   secret: SESSION_SECRET,
