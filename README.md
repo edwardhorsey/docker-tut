@@ -76,6 +76,13 @@ To inspect a network:
 `sudo docker network inspect [network name]`
 
 On custom networks within Docker DNS is built in. We can use service name and DNS will resolve to the ip. eg. Log into the node app container and ping mongo. It will resolve to mongo's IP address.
+
+## Ubuntu server
+
+Install docker @ https://get.docker.com/
+
+Create .env file and add `set -o allexport; source /[path to your]/.env; set +o allexport` to .profile file to load environment variables
+
 # Docker Normal
 ### Build image
 `sudo docker build -t [image name] .`

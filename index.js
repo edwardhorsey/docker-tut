@@ -9,7 +9,6 @@ const {
   MONGO_PASSWORD,
   MONGO_IP,
   MONGO_PORT,
-  EDWARD,
   PORT,
   NODE_ENVIRONMENT,
   REDIS_URL,
@@ -62,7 +61,6 @@ app.use(session({
 app.get('/api/v1', (req, res) => {
   res.send([
     '<h2>Hi There Ed</h2>',
-    `<p>Secret: ${EDWARD}</p>`,
     `<p>Using port: ${PORT} inside container</p>`,
     `<p>NODE_ENVIRONMENT: ${NODE_ENVIRONMENT}.</p>`,
   ].join(''));
