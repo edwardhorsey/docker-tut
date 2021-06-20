@@ -31,7 +31,7 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ---
 # MongoDB
 ### Enter mongo db
-`sudo docker exec -it [container name] mongo -u "ed" -p "password"`
+`sudo docker exec -it [container name] mongo -u "ed" -p "password"` (username & password set in docker-compose.dev.yml / prod environment)
 
 # Redis
 ### Enter redis db
@@ -63,13 +63,13 @@ You need to tell docker-compose to rebuild the image with --build flag.
 ---
 # Notes
 ## Types of volumes
-1. Bind mount
-path on local machine : path on container, eg. `./:app`
-2. Anonymous volume
-just path on container which you're interested in, eg. `/app/node_modules`
+1. Bind mount:
+_path on local machine : path on container_, eg. `./:app`
+2. Anonymous volume:
+_just path on container which you're interested in_, eg. `/app/node_modules`
 
-3. Named volume 
-name : path on container, eg. `mongo-db:/data/db` **but** must mention in docker-composer.yml as a volume under volumes section
+3. Named volume: 
+_name : path on container_, eg. `mongo-db:/data/db` **but** must mention in docker-composer.yml as a volume under volumes section
 
 ## Custom networks
 To inspect a network:
