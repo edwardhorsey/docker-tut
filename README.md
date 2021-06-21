@@ -25,6 +25,9 @@ Note: removed -v flag as we are using a named volume which we do not want to del
 
 Add multiple instances of a container: add flag `--scale [container name]=2` (or more)
 
+Rebuild a specific service but do not rebuild its dependencies: add flag `--no-deps` followed by service name, eg. `--no-deps [container-name]`
+
+
 ### Notes:
 You need to tell docker-compose to rebuild the image with --build flag.
 

@@ -60,7 +60,7 @@ app.use(session({
 
 app.get('/api/v1', (req, res) => {
   res.send([
-    '<h2>Hi There Ed! Making a change here</h2>',
+    '<h2>Hi There Ed</h2>',
     `<p>Using port: ${PORT} inside container</p>`,
     `<p>NODE_ENVIRONMENT: ${NODE_ENVIRONMENT}.</p>`,
   ].join(''));
