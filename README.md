@@ -92,6 +92,16 @@ Install docker @ https://get.docker.com/
 
 Create .env file and add `set -o allexport; source /[path to your]/.env; set +o allexport` to .profile file to load environment variables
 
+## Watchtower 
+
+Documentation @ https://containrrr.dev/watchtower/arguments/
+
+Command used (poll interval is 50 seconds)
+
+`docker run -d --name watchtower -e WATCHTOWER_TRACE=true -e WATCHTOWER_DEBUG=true -e WATCHTOWER_POLL_INTERVAL=50 -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower [container-name]`
+
+`docker rm -f watchtower`
+
 # Docker Normal
 ### Build image
 `sudo docker build -t [image name] .`
