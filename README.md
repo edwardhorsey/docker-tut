@@ -27,9 +27,15 @@ Add multiple instances of a container: add flag `--scale [container name]=2` (or
 
 Rebuild a specific service but do not rebuild its dependencies: add flag `--no-deps` followed by service name, eg. `--no-deps [container-name]`
 
+### Production workflow
+In this case [service name] refers to our node app as this is generally where we'll be making changes in our code. We only want to rebuild this service to avoid rebuilding the database containers unneccesarily, in case anything breaks.
 
-### Notes:
-You need to tell docker-compose to rebuild the image with --build flag.
+1. Begin on dev environment
+1. `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml build [service name]`
+2. `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml push [service name]`
+3. Log into prod server
+4. `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull [service name]`
+5. `sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps [service name]`
 
 ---
 # MongoDB
