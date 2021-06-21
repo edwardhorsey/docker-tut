@@ -96,3 +96,7 @@ Create .env file and add `set -o allexport; source /[path to your]/.env; set +o 
 
 ### Remove container
 `sudo docker rm [container name] -f`
+
+### Rename images
+New image name must match that of _username/repository_ on DockerHub
+`sudo docker image tag [old image name] [new image name]`

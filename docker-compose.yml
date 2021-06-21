@@ -8,6 +8,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
   node-docker-app:
     build: .
+    image: edwardhorsey/docker-tut
     depends_on:
       - mongo
   mongo:
