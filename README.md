@@ -116,3 +116,6 @@ Command used (poll interval is 50 seconds)
 ### Rename images
 New image name must match that of _username/repository_ on DockerHub
 `sudo docker image tag [old image name] [new image name]`
+
+# Docker Compose x Docker Swarm
+Docker swarm is a container orchestrator. It can spin up containers, distribute them over multiple servers and perform rolling updates wheras Docker Compose is intended as a development tool for configuring and starting multiple Docker containers on a single host.

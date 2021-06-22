@@ -4,6 +4,15 @@ services:
     ports:
       - "80:80"
   node-docker-app:
+    deploy:
+      replicas: 8
+      restart_policy:
+        condition: any
+        delay: 5s
+      update_config:
+        parallelism: 2
+        delay: 20s
+        failure_action: rollback
     build: 
       context: .
       args:
