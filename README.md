@@ -119,3 +119,26 @@ New image name must match that of _username/repository_ on DockerHub
 
 # Docker Compose x Docker Swarm
 Docker swarm is a container orchestrator. It can spin up containers, distribute them over multiple servers and perform rolling updates wheras Docker Compose is intended as a development tool for configuring and starting multiple Docker containers on a single host.
+
+## docker stack
+To see all options: `docker stack --help` and `docker stack [option] --help`
+
+### To deploy or update a stack (flag -c to pass a docker-compose file):
+
+`sudo docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml [your-stack-name]`
+
+### Push updated changes to our node app / service:
+
+1. Make changes to service in dev envirionment
+2. Build and push image of service
+3. Run same `sudo docker stack deploy ...` command as above and Docker Swarm will pull the latest image and update our containers as per the parallelism setting within `docker-compose.prod.yml` (in this case shutting down and rebuilding a maximum `2` at a time).
+
+### See all running containers for a stack
+
+`docker stack ps [your-stack-name]`
+
+### Shut down stack
+
+`docker stack rm [your-stack-name]`
+
+# :whale:
